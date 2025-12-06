@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Trang Profile - Khánh Vy</title>
+  <title>Trang Profile - Đêm Đầy Sao</title>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
@@ -95,7 +95,15 @@
     .meta{color:var(--muted);margin-top:6px}
 
     .details{display:flex;flex-direction:column;gap:12px}
-    .field{
+    .field{ /* updated */
+  padding:14px 16px;
+  border-radius:14px;
+  background: rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.25);
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+
       padding:12px 14px;border-radius:10px;background:var(--card-bg);border:1px solid rgba(255,255,255,0.02);
       display:flex;flex-direction:column;
     }
@@ -119,8 +127,9 @@
   <div class="stars" aria-hidden="true"></div>
   <div class="container">
     <main class="profile-card" role="main" aria-labelledby="profile-name">
-      <div class="avatar" aria-hidden="false">
-        <div class="initials">VD</div>
+      <div class="avatar" aria-hidden="false" style="background:none;border:none;box-shadow:none;padding:0;width:220px;height:220px;">
+  <img src="https://i.pinimg.com/736x/2f/d2/1b/2fd21bd35fbe51140cb7d534b157ce2d.jpg" alt="Avatar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid rgba(255,255,255,0.5);box-shadow:0 4px 18px rgba(0,0,0,0.6);">
+</div>
         <small>Đêm đầy sao</small>
       </div>
 
@@ -131,12 +140,12 @@
         </header>
 
         <div class="field">
-          <div class="label">Ngày sinh</div>
+          <div class="label"><span style='margin-right:6px;'>⭐</span>Ngày sinh</div>
           <div class="value" id="dob">01/01/2000</div>
         </div>
 
         <div class="field">
-          <div class="label">Sở thích</div>
+          <div class="label"><span style='margin-right:6px;'>⭐</span>Sở thích</div>
           <div class="value chips" id="hobbies">
             <span class="chip">Nghe nhạc</span>
             <span class="chip">Ngắm sao</span>
@@ -145,7 +154,7 @@
         </div>
 
         <div class="field">
-          <div class="label">Tính cách</div>
+          <div class="label"><span style='margin-right:6px;'>⭐</span>Tính cách</div>
           <div class="value" id="personality">Điềm tĩnh, sáng tạo, thích khám phá và suy tư giữa khung trời đêm.</div>
         </div>
 
@@ -154,27 +163,27 @@
         </footer>
 
         <div class="field">
-          <div class="label">Câu nói yêu thích</div>
+          <div class="label"><span style='margin-right:6px;'>⭐</span>Câu nói yêu thích</div>
           <div class="value" id="quote">“Trong đêm tối, ta nhìn thấy mình rõ nhất.”</div>
         </div>
 
         <div class="field">
-          <div class="label">Điểm mạnh</div>
+          <div class="label"><span style='margin-right:6px;'>⭐</span>Điểm mạnh</div>
           <div class="value" id="strengths">Kiên trì, sáng tạo, dễ đồng cảm.</div>
         </div>
 
         <div class="field">
-          <div class="label">Điểm yếu</div>
+          <div class="label"><span style='margin-right:6px;'>⭐</span>Điểm yếu</div>
           <div class="value" id="weaknesses">Hay suy nghĩ nhiều, nhạy cảm, dễ lo lắng.</div>
         </div>
 
         <div class="field">
-          <div class="label">Thể loại nhạc yêu thích</div>
+          <div class="label"><span style='margin-right:6px;'>⭐</span>Thể loại nhạc yêu thích</div>
           <div class="value" id="music">Indie, Lofi, nhạc không lời.</div>
         </div>
 
         <div class="field">
-          <div class="label">Thể loại phim yêu thích</div>
+          <div class="label"><span style='margin-right:6px;'>⭐</span>Thể loại phim yêu thích</div>
           <div class="value" id="movies">Tâm lý, lãng mạn, slice of life.</div>
         </div>
       </section>
