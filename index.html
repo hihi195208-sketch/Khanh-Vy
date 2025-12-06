@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trang Profile - Khánh Vy</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --card-bg: rgba(255,255,255,0.06);
+      --accent: rgba(173,216,230,0.12);
+      --glass-border: rgba(255,255,255,0.08);
+      --text: #e6f7ff;
+      --muted: rgba(230,247,255,0.75);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+
+    /* Background: Cà phê vỉa hè trong đêm - Van Gogh */
+    body{
+      background: url('https://share.google/6bkNBN8sm8NYWywei') center/cover no-repeat fixed;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow:auto;
+    }
+
+    /* Stars layers */
+    .stars, .stars::before, .stars::after{
+      position:fixed;inset:0;content:"";z-index:0;pointer-events:none;
+      background-repeat:repeat;
+    }
+    /* small stars */
+    .stars{
+      background-image: radial-gradient(2px 2px at 10px 10px, rgba(255,255,255,0.9), rgba(255,255,255,0.05));
+      background-size: 40px 40px;
+      opacity:0.9;
+      transform: translateZ(0);
+      animation: drift 120s linear infinite;
+    }
+    /* medium stars */
+    .stars::before{
+      background-image: radial-gradient(3px 3px at 20px 20px, rgba(255,255,255,0.95), rgba(255,255,255,0.02));
+      background-size: 120px 120px;
+      opacity:0.6;
+      animation: drift 200s linear reverse infinite;
+    }
+    /* twinkling layer */
+    .stars::after{
+      background-image: radial-gradient(1px 1px at 30px 30px, rgba(255,255,255,1), rgba(255,255,255,0.02));
+      background-size: 80px 80px;
+      opacity:0.35;
+      animation: twinkle 6s ease-in-out infinite;
+    }
+
+    @keyframes drift{from{transform:translateY(0)} to{transform:translateY(-2000px)}}
+    @keyframes twinkle{0%,100%{opacity:0.2}50%{opacity:0.9}}
+
+    /* Layout */
+    .container{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:3rem 1rem;
+      position:relative;
+      z-index:2;
+    }
+
+    .profile-card{
+      width:100%;
+      max-width:880px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border:1px solid var(--glass-border);
+      border-radius:16px;
+      padding:28px;
+      backdrop-filter: blur(8px) saturate(120%);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .avatar{
+      height:200px;width:200px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);
+      display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      flex-direction:column;padding:12px;
+    }
+    .avatar .initials{
+      font-family: 'Playfair Display', serif;font-size:36px;color:var(--text);letter-spacing:1px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    }
+    .avatar small{color:var(--muted);margin-top:8px}
+
+    h1{font-family:'Playfair Display', serif;margin:0;font-size:28px;color:var(--text)}
+    .meta{color:var(--muted);margin-top:6px}
+
+    .details{display:flex;flex-direction:column;gap:12px}
+    .field{
+      padding:12px 14px;border-radius:10px;background:var(--card-bg);border:1px solid rgba(255,255,255,0.02);
+      display:flex;flex-direction:column;
+    }
+    .field .label{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .field .value{font-size:15px;color:var(--text);line-height:1.4}
+
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.04);font-size:13px;border:1px solid rgba(255,255,255,0.02)}
+
+    footer{margin-top:10px;color:rgba(230,247,255,0.45);font-size:13px}
+
+    /* Responsive */
+    @media (max-width:720px){
+      .profile-card{grid-template-columns:1fr;max-width:600px;padding:18px}
+      .avatar{height:140px;width:140px;margin:0 auto}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="container">
+    <main class="profile-card" role="main" aria-labelledby="profile-name">
+      <div class="avatar" aria-hidden="false">
+        <div class="initials">VD</div>
+        <small>Đêm đầy sao</small>
+      </div>
+
+      <section class="details" aria-labelledby="profile-name">
+        <header>
+          <h1 id="profile-name">Tên: <span id="name">Nguyễn Văn A</span></h1>
+          <div class="meta">Trang cá nhân — Thiết kế phong cách "đêm"</div>
+        </header>
+
+        <div class="field">
+          <div class="label">Ngày sinh</div>
+          <div class="value" id="dob">01/01/2000</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Sở thích</div>
+          <div class="value chips" id="hobbies">
+            <span class="chip">Nghe nhạc</span>
+            <span class="chip">Ngắm sao</span>
+            <span class="chip">Đọc sách</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label">Tính cách</div>
+          <div class="value" id="personality">Điềm tĩnh, sáng tạo, thích khám phá và suy tư giữa khung trời đêm.</div>
+        </div>
+
+        <footer>
+          Bạn có thể chỉnh nội dung bằng cách sửa trực tiếp trong mã HTML (thẻ có id: name, dob, hobbies, personality).
+        </footer>
+
+        <div class="field">
+          <div class="label">Câu nói yêu thích</div>
+          <div class="value" id="quote">“Trong đêm tối, ta nhìn thấy mình rõ nhất.”</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Điểm mạnh</div>
+          <div class="value" id="strengths">Kiên trì, sáng tạo, dễ đồng cảm.</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Điểm yếu</div>
+          <div class="value" id="weaknesses">Hay suy nghĩ nhiều, nhạy cảm, dễ lo lắng.</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Thể loại nhạc yêu thích</div>
+          <div class="value" id="music">Indie, Lofi, nhạc không lời.</div>
+        </div>
+
+        <div class="field">
+          <div class="label">Thể loại phim yêu thích</div>
+          <div class="value" id="movies">Tâm lý, lãng mạn, slice of life.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Optional: small script to let user quickly edit demo fields in-page -->
+  <script>
+    // Dùng console để thay đổi nhanh: document.getElementById('name').textContent = 'Tên mới'
+    // Hoặc mở rộng script để thêm tính năng chỉnh sửa trực tiếp nếu cần.
+  </script>
+</body>
+</html>
