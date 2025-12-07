@@ -156,16 +156,19 @@
       <div>
         <div class="label">Thể loại nhạc yêu thích</div>
         <div class="value">Nhạc ballad suy, nhạc về những bài học cuộc sống</div>
-        <div class="label">Bài hát yêu thích</div>
+      </div>
+    </div>
+
+    <div class="card">
+<div class="icon">🎶</div>
+<div>
+<div class="label">Bài hát yêu thích</div>
 <div class="value">
 <button onclick="document.getElementById('music').play()" style="padding:6px 12px;border-radius:6px;border:none;background:#fff3;cursor:pointer;color:white;font-weight:600;">▶ Phát</button>
 <audio id="music" src="https://www.youtube.com/watch?v=vCIc1g_4JWM&list=RDvCIc1g_4JWM&start_radio=1"></audio>
 </div>
 </div>
 </div>
-        
-      </div>
-    </div>
 
     <div class="card">
       <div class="icon">🎬</div>
@@ -181,6 +184,7 @@
     <a href="#">Quay lại</a>
   </div>
 </div>
+
 <script>
 const snowContainer=document.createElement('div');
 snowContainer.style.position='fixed';
@@ -216,7 +220,6 @@ setInterval(createSnow,120);
 100%{transform:translateY(110vh)}
 }
 </style>
-
 </body>
 </html>
 
